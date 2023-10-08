@@ -1,14 +1,24 @@
 spring:
+  config:
+    import: optional:configserver:http://127.0.0.1:7777/
   application:
     name: first-service
+  cloud:
+    config:
+      failFast: true
+      name: fist-service
+      uri: http://127.0.0.1:7777/
+    
 server:
   port: 8081
 eureka:
   instance:
     prefer-ip-address: true
-    instance-id: ${spring.application.name}:${random.int}  
+    instance-id: ${spring.application.name}:${random.int} 
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8888/eureka
+testing:
+  myval: Hello      
