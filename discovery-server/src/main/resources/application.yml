@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: discovery-server
+server:
+  port: 8888
+  ssl:
+    enabled: false
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    hostname: localhost
+    ip-address: true
+    instance-id: ${spring.application.name}:${random.int}  
